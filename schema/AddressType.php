@@ -12,9 +12,9 @@ class AddressType extends ObjectType
         $config = [
             'fields' => function() {
                 return [
-                	'user' => [
-                		'type' => Types::user(),
-                	],
+                    'user' => [
+                        'type' => Types::user(),
+                    ],
                     'city' => [
                         'type' => Types::city(),
                     ],
