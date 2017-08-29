@@ -10,7 +10,6 @@ use Yii;
  * @property integer $id
  * @property string $street
  * @property string $zip
- * @property integer $stateId
  * @property string $createDate
  * @property string $modifyDate
  * @property integer $status
@@ -37,7 +36,7 @@ class Address extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'userId', 'cityId'], 'required'],
-            [['id', 'stateId', 'status', 'userId', 'cityId'], 'integer'],
+            [['id', 'status', 'userId', 'cityId'], 'integer'],
             [['createDate', 'modifyDate'], 'safe'],
             [['street', 'zip'], 'string', 'max' => 45],
             [['cityId'], 'exist', 'skipOnError' => true, 'targetClass' => City::className(), 'targetAttribute' => ['cityId' => 'id']],
@@ -54,7 +53,6 @@ class Address extends \yii\db\ActiveRecord
             'id' => 'ID',
             'street' => 'Street',
             'zip' => 'Zip',
-            'stateId' => 'State ID',
             'createDate' => 'Create Date',
             'modifyDate' => 'Modify Date',
             'status' => 'Status',
