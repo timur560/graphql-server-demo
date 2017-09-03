@@ -19,7 +19,7 @@ class GraphqlController extends \yii\rest\ActiveController
     protected function verbs()
     {
         return [
-            'index' => ['POST'],
+            'index' => ['POST', 'OPTIONS'],
         ];
     }
 
@@ -60,7 +60,7 @@ class GraphqlController extends \yii\rest\ActiveController
 
         $schema = new Schema([
             'query' => Types::query(),
-            // 'mutation' => Types::mutation(),
+            'mutation' => Types::mutation(),
         ]);
 
         // огонь!

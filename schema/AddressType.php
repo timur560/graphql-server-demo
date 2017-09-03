@@ -18,10 +18,12 @@ class AddressType extends ObjectType
                     'city' => [
                         'type' => Types::city(),
                     ],
-
-                    // остальные поля не столь интересны
-                    // посему оставляю их вам на 
-                    // личное растерзание
+                    'zip' => [
+                        'type' => Type::string(),
+                    ],
+                    'street' => [
+                        'type' => Type::string(),
+                    ],
                 ];
             }
         ];
