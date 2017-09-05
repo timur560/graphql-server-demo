@@ -7,6 +7,7 @@ use GraphQL\GraphQL;
 use GraphQL\Schema;
 use yii\base\InvalidParamException;
 use yii\helpers\Json;
+use GraphQL\Error\Debug;
 
 
 class GraphqlController extends \yii\rest\ActiveController
@@ -65,14 +66,14 @@ class GraphqlController extends \yii\rest\ActiveController
 
         // огонь!
 
-        $result = GraphQL::execute(
+        $result = GraphQL::executeQuery(
             $schema,
             $query,
             null,
             null,
             empty($variables) ? null : $variables,
             empty($operation) ? null : $operation
-        );
+        )->toArray(Debug::INCLUDE_DEBUG_MESSAGE | Debug::INCLUDE_TRACE);
 
         return $result;
     }

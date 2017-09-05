@@ -14,6 +14,7 @@ use Yii;
  * @property string $modityDate
  * @property string $lastVisitDate
  * @property integer $status
+ * @property string $email
  *
  * @property Address[] $addresses
  */
@@ -33,10 +34,11 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
+            [['id', 'email'], 'required'],
             [['id', 'status'], 'integer'],
             [['createDate', 'modityDate', 'lastVisitDate'], 'safe'],
-            [['firstname', 'lastname'], 'string', 'max' => 45],
+            [['firstname', 'lastname', 'email'], 'string', 'max' => 45],
+            ['email', 'email'],
         ];
     }
 

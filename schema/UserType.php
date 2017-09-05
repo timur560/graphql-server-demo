@@ -19,6 +19,9 @@ class UserType extends ObjectType
                     'lastname' => [
                         'type' => Type::string(),
                     ],
+                    'email' => [
+                        'type' => Type::string(),
+                    ],
                     'createDate' => [
                         'type' => Type::string(),
                         
